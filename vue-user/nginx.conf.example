@@ -1,0 +1,19 @@
+
+# Nginx 配置文件
+server {
+    listen 80;
+    server_name tanghc.xyz;  # 替换为您的域名
+
+    # vue-user 应用的根目录，假设部署在 /var/www/vue-user/dist
+    location / {
+        root /var/www/vue-user/dist;  # 根据您服务器实际路径调整
+        try_files $uri $uri/ /index.html;  # 重要：将所有路由都重定向到 index.html，支持 history 模式
+        index index.html;
+    }
+
+    # 静态资源缓存配置
+    location /static/ {
+        root /var/www/vue-user/dist;  # 根据您服务器实际路径调整
+        expires 30d;
+    }
+}

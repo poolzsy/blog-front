@@ -30,7 +30,7 @@ module.exports = {
         proxy: {
             // detail: https://cli.vuejs.org/config/#devserver-proxy
             [process.env.VUE_APP_BASE_API]: {
-                target: `http://47.239.192.234:7777`,
+                target: `替换为你的后端端口`,
                 changeOrigin: true,
                 pathRewrite: {
                     ['^' + process.env.VUE_APP_BASE_API]: ''
